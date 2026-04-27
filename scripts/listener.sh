@@ -9,6 +9,7 @@
 set -uo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+# shellcheck source=./lib.sh
 source "${SCRIPT_DIR}/lib.sh"
 
 log listener "==== listener 启动 (pid=$$) ===="

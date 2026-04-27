@@ -19,6 +19,7 @@ PROJECT_ROOT="$(cd "${LIB_DIR}/.." && pwd)"
 # 从 .env 加载（chmod 600）
 if [[ -f "${PROJECT_ROOT}/.env" ]]; then
   set -a
+  # shellcheck disable=SC1091
   source "${PROJECT_ROOT}/.env"
   set +a
 else
@@ -273,7 +274,8 @@ flusher_loop() {
   done
 
   [[ -f "$buffer" ]] || return 0
-  local batch_file="${STATE_DIR}/batch-$(date +%s).txt"
+  local batch_file
+  batch_file="${STATE_DIR}/batch-$(date +%s).txt"
   mv "$buffer" "$batch_file"
   rm -f "$last_ts"
 

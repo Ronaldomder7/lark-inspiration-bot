@@ -14,6 +14,7 @@
 set -uo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+# shellcheck source=./lib.sh
 source "${SCRIPT_DIR}/lib.sh"
 
 USER_INPUT="${1:-}"
