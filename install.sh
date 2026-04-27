@@ -121,8 +121,10 @@ if [[ ! -f "$ENV_PATH" ]]; then
 fi
 
 # 校验填了
+set -a
 # shellcheck disable=SC1090
-set -a; source "$ENV_PATH"; set +a
+source "$ENV_PATH"
+set +a
 for var in DASHSCOPE_API_KEY LARK_APP_ID LARK_APP_SECRET LARK_USER_OPEN_ID; do
   if [[ -z "${!var:-}" ]] || [[ "${!var}" == *"在这里填"* ]]; then
     c_red "✗ .env 里 ${var} 还没填。手动改一下 ${ENV_PATH}，然后重跑 install.sh"
