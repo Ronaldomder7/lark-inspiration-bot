@@ -1,0 +1,21 @@
+# 配置和密钥（绝对不能 commit）
+.env
+.env.local
+.env.*.local
+
+# 运行时状态
+state/
+logs/
+
+# macOS
+.DS_Store
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+*~
+
+# 备份
+*.bak
+*.bak.*
